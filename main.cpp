@@ -47,6 +47,28 @@ int main()
 	Piece whiteQueen(0, 3, Queen);
 	Piece blackQueen(7, 4, Queen);
 
+	//white pawns
+	Piece pawna2(1,0, Pawn);
+	Piece pawnb2(1,1, Pawn);
+	Piece pawnc2(1,2, Pawn);
+	Piece pawnd2(1,3, Pawn);
+	Piece pawne2(1,4, Pawn);
+	Piece pawnf2(1,5, Pawn);
+	Piece pawng2(1,6, Pawn);
+	Piece pawnh2(1,7, Pawn);
+
+	//black pawns
+	Piece pawna7(6,0, Pawn);
+	Piece pawnb7(6,1, Pawn);
+	Piece pawnc7(6,2, Pawn);
+	Piece pawnd7(6,3, Pawn);
+	Piece pawne7(6,4, Pawn);
+	Piece pawnf7(6,5, Pawn);
+	Piece pawng7(6,6, Pawn);
+	Piece pawnh7(6,7, Pawn);
+
+
+
 	
 
 
@@ -72,6 +94,26 @@ int main()
 	game.board[0][3].setPiece(&whiteQueen);
 	game.board[7][4].setPiece(&blackQueen);
 	
+	game.board[1][0].setPiece(&pawna2);
+	game.board[1][1].setPiece(&pawnb2);
+	game.board[1][2].setPiece(&pawnc2);
+	game.board[1][3].setPiece(&pawnd2);
+	game.board[1][4].setPiece(&pawne2);
+	game.board[1][5].setPiece(&pawnf2);
+	game.board[1][6].setPiece(&pawng2);
+	game.board[1][7].setPiece(&pawnh2);
+
+	game.board[6][0].setPiece(&pawna7);
+	game.board[6][1].setPiece(&pawnb7);
+	game.board[6][2].setPiece(&pawnc7);
+	game.board[6][3].setPiece(&pawnd7);
+	game.board[6][4].setPiece(&pawne7);
+	game.board[6][5].setPiece(&pawnf7);
+	game.board[6][6].setPiece(&pawng7);
+	game.board[6][7].setPiece(&pawnh7);
+
+
+
 	
 	//print the board
 	printGrid(game);

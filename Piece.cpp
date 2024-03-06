@@ -40,6 +40,9 @@ void Piece::printPiece()
 		case Queen:
 			std::cout << "Queen ";
 			break;
+        case Pawn:
+            std::cout << "Pawn ";
+            break;
         default:
             break;
     }
