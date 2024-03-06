@@ -5,4 +5,4 @@ project(Johannes)
 
 set(CMAKE_CXX_FLAGS "--std=c++17 -Wall -g -Wextra")
 
-add_executable(Chess main.cpp State.cpp Piece.cpp)
+add_executable(Chess main.cpp State.cpp Piece.cpp Square.cpp)

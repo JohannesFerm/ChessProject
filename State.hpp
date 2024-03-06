@@ -1,13 +1,13 @@
 #pragma once
 
-#include "Piece.hpp"
+#include "Square.hpp"
 
 class State
 {
 	private:
 		bool mate = false;
 	public:
-		Piece board[8][8]; //brädet
+		Square board[8][8]; //brädet
 		State(){}
 };
 		

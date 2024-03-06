@@ -19,5 +19,28 @@ void Piece::Move(int x, int y)
             }
             break;
     }
+}
 
+void Piece::printPiece()
+{
+    switch(type)
+    {
+        case King:
+			std::cout << "King ";
+			break;
+		case Rook:
+			std::cout << "Rook ";
+			break;
+		case Knight:
+			std::cout << "Knight ";
+			break;
+		case Bishop:
+			std::cout << "Bishop ";
+			break;
+		case Queen:
+			std::cout << "Queen ";
+			break;
+        default:
+            break;
+    }
 }
