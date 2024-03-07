@@ -3,8 +3,47 @@
 #include "State.hpp"
 #include "Square.hpp"
 #include <vector>
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 using namespace std;
+
+void drawBoard(sf::RenderWindow& wind)
+{
+	enum color{White, Black};
+	color c = White;
+	for(int i = 0; i < 8; i++)
+	{
+		if(i % 2 == 0) //if the row is even we have a white square to begin with
+			c = White;
+		else
+			c = Black;
+		for(int j = 0; j < 8;j++)
+		{
+			sf::RectangleShape sq(sf::Vector2f(800/8, 800/8));
+			sq.setPosition(j*100, i*100);
+				
+			switch(c)
+			{
+				case White:
+					sq.setFillColor(sf::Color::White);
+					c = Black;
+					break;
+				case Black:
+					sq.setFillColor(sf::Color::Black);
+					c = White;
+					break;
+				default:
+					break;
+			}
+			wind.draw(sq);
+		}
+	}
+}
+		
+			
+			
+	
 
 void printGrid(State s) //helper, to do: fix better function later
 {
@@ -112,17 +151,30 @@ int main()
 	game.board[6][6].setPiece(&pawng7);
 	game.board[6][7].setPiece(&pawnh7);
 
-
-
-	
-	//print the board
+	//print the board, intial position
 	printGrid(game);
+
+	//SFML, graphics
+	
+	sf::RenderWindow window(sf::VideoMode(800, 800), "Chess"); 
+	drawBoard(window);
+	window.display();
+	while(window.isOpen())
+	{
+		sf::Event event;
+		while(window.pollEvent(event))
+		{
+			if(event.type == sf::Event::Closed)
+				window.close();
+		}
+	}
 
 	return 0;
 }
 	
 /*
 todo:
-*sätt in alla bönder
+*snygga till, vart ska drawBoard() ligga osv
+*rita in pjäser utifrån deras position
 *Fixa check för drag för alla pjäser, (gör klart switch-case i Piece.cpp)
 */
