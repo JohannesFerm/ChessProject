@@ -156,9 +156,16 @@ int main()
 
 	//SFML, graphics
 	
+	//load picute of pieces and draw it to the window
+	sf::Texture pieces;
+	pieces.loadFromFile("../chesspieces.png");
+	
+	sf::IntRect test(20,20, 161, 144);
+	
+	sf::Sprite sprite(pieces, test);
+	//sprite.setTexture(piece);	
+		
 	sf::RenderWindow window(sf::VideoMode(800, 800), "Chess"); 
-	drawBoard(window);
-	window.display();
 	while(window.isOpen())
 	{
 		sf::Event event;
@@ -167,6 +174,9 @@ int main()
 			if(event.type == sf::Event::Closed)
 				window.close();
 		}
+		drawBoard(window);
+		window.draw(sprite);
+		window.display();
 	}
 
 	return 0;
@@ -175,6 +185,6 @@ int main()
 /*
 todo:
 *snygga till, vart ska drawBoard() ligga osv
-*rita in pjäser utifrån deras position
+*rita in pjäser utifrån deras position 
 *Fixa check för drag för alla pjäser, (gör klart switch-case i Piece.cpp)
 */
